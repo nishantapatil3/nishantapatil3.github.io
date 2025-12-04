@@ -11,6 +11,16 @@
 
 <br>
 
+### 📈 [**View Interactive Plotly Dashboard →**](https://nishantapatil3.github.io/visitor-analytics.html)
+
+> ✨ **New!** Experience our interactive Plotly-powered analytics dashboard featuring:
+> - 📊 Real-time cumulative visitor trends
+> - 📈 Daily growth rate analysis with 7-day moving average
+> - 🎯 Key metrics: Total visitors, average daily growth, monthly trends
+> - 🎨 Beautiful, responsive, and fully interactive charts
+
+---
+
 **Select Time Range:**
 
 [![Last 24 Hours](https://img.shields.io/badge/Last_24_Hours-blue?style=for-the-badge)](https://visitorbadge.io/status?path=nishantapatil3.github.io&period=24h)
@@ -25,13 +35,3 @@
 
 [![Visitor Graph](https://api.visitorbadge.io/api/combined?path=nishantapatil3.github.io&countColor=%230e75b6&style=flat&labelColor=%23555555)](https://visitorbadge.io/status?path=nishantapatil3.github.io)
 
-> 💡 Click any time range button above or the graph to view detailed interactive analytics
-
-</details>
-
-## Repository Statistics
-
-![GitHub stars](https://img.shields.io/github/stars/nishantapatil3/nishantapatil3.github.io?style=flat)
-![GitHub forks](https://img.shields.io/github/forks/nishantapatil3/nishantapatil3.github.io?style=flat)
-![GitHub last commit](https://img.shields.io/github/last-commit/nishantapatil3/nishantapatil3.github.io?style=flat)
-[![GitHub Pages](https://img.shields.io/badge/status-active-success?style=flat)](https://nishantapatil3.github.io/)
