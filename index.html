@@ -26,6 +26,7 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#chatbot">Chatbot</a>
+                <a href="#analytics">Analytics</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="social-icons">
@@ -82,6 +83,17 @@
         </div>
     </section>
 
+    <!-- Visitor Analytics Section -->
+    <section id="analytics" class="analytics-section">
+        <div class="container">
+            <h2>Visitor Analytics</h2>
+            <p>Track the growth and engagement of visitors to this site</p>
+            <div class="chart-container">
+                <canvas id="visitorChart"></canvas>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="container">
@@ -106,13 +118,19 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Made with ❤️ by Nishant Patil</p>
+            <div class="footer-content">
+                <p>Made with ❤️ by Nishant Patil</p>
+                <!-- Visitor Counter -->
+                <div class="visitor-counter">
+                    <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fnishantapatil3.github.io&label=Visitors&countColor=%230e75b6&style=flat"
+                        alt="Visitor Counter" />
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Visitor Counter -->
-    <script async
-        src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fnishantapatil3.github.io&count_bg=%230E75B6&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"></script>
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
     <!-- Dark Mode Toggle Script -->
     <script>
@@ -138,6 +156,114 @@
             icon.className = theme === 'light' ? 'fa fa-moon-o' : 'fa fa-sun-o';
         }
     </script>
+
+    <!-- Visitor Analytics Chart Script -->
+    <script>
+        // Simulate visitor data (in a real application, this would come from an API)
+        const visitorData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Visitors',
+                data: [120, 190, 300, 250, 420, 380, 490, 510, 600, 650, 720, 800],
+                borderColor: 'rgb(14, 117, 182)',
+                backgroundColor: 'rgba(14, 117, 182, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        };
+
+        // Get theme-aware colors
+        function getChartColors() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const isDark = theme === 'dark';
+            return {
+                textColor: isDark ? '#e0e0e0' : '#333',
+                gridColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'
+            };
+        }
+
+        // Create the chart
+        const ctx = document.getElementById('visitorChart');
+        let visitorChart;
+
+        function initChart() {
+            const colors = getChartColors();
+
+            if (visitorChart) {
+                visitorChart.destroy();
+            }
+
+            visitorChart = new Chart(ctx, {
+                type: 'line',
+                data: visitorData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                color: colors.textColor,
+                                font: {
+                                    family: 'Inter, sans-serif',
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: {
+                                family: 'Inter, sans-serif'
+                            },
+                            bodyFont: {
+                                family: 'Inter, sans-serif'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: colors.textColor,
+                                font: {
+                                    family: 'Inter, sans-serif'
+                                }
+                            },
+                            grid: {
+                                color: colors.gridColor
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: colors.textColor,
+                                font: {
+                                    family: 'Inter, sans-serif'
+                                }
+                            },
+                            grid: {
+                                color: colors.gridColor
+                            }
+                        }
+        // Update chart colors when theme changes
+        themeToggle.addEventListener('click', () => {
+                            setTimeout(initChart, 100);
+                        });
+    </script>
+</body>
+
+</html>
+html.setAttribute('data-theme', newTheme);
+localStorage.setItem('theme', newTheme);
+updateIcon(newTheme);
+});
+
+function updateIcon(theme) {
+icon.className = theme === 'light' ? 'fa fa-moon-o' : 'fa fa-sun-o';
+}
+</script>
 </body>
 
 </html>
