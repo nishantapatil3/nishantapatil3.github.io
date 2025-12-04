@@ -1,5 +1,31 @@
 # [Nishant's Portfolio](https://nishantapatil3.github.io/)
 
+## Local Development
+
+To run the website locally and avoid CORS errors when loading newsletter posts:
+
+### Option 1: Using the shell script (macOS/Linux)
+```bash
+chmod +x start-server.sh
+./start-server.sh
+```
+
+### Option 2: Using npm
+```bash
+npm start
+```
+
+### Option 3: Using Python directly
+```bash
+python3 -m http.server 8000
+```
+
+Then open your browser to: **http://localhost:8000**
+
+## Adding Newsletter Posts
+
+See [newsletter/README.md](newsletter/README.md) for instructions on adding new newsletter posts.
+
 ## Website Visitors
 
 ![Website Visitors](https://api.visitorbadge.io/api/visitors?path=nishantapatil3.github.io&label=Total%20Visitors&countColor=%230e75b6&style=flat&labelColor=%23555555)
