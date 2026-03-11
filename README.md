@@ -2,7 +2,7 @@
 
 ## Local Development
 
-To run the website locally and avoid CORS errors when loading newsletter posts:
+To run the website locally and avoid CORS errors when loading posts:
 
 ### Option 1: Using the shell script (macOS/Linux)
 ```bash
@@ -22,9 +22,19 @@ python3 -m http.server 8000
 
 Then open your browser to: **http://localhost:8000**
 
-## Adding Newsletter Posts
+Posts index: **http://localhost:8000/posts/**
 
-See [newsletter/README.md](newsletter/README.md) for instructions on adding new newsletter posts.
+## Import Medium Posts
+
+```bash
+task import-medium
+```
+
+Each import stores a static HTML snapshot as `source.html` inside each post folder.
+
+## Adding Posts
+
+See [posts/README.md](posts/README.md) for instructions on adding new posts.
 
 ## Website Visitors
 
@@ -60,4 +70,3 @@ See [newsletter/README.md](newsletter/README.md) for instructions on adding new 
 **Live Visitor Trend (Last 30 Days):**
 
 [![Visitor Graph](https://api.visitorbadge.io/api/combined?path=nishantapatil3.github.io&countColor=%230e75b6&style=flat&labelColor=%23555555)](https://visitorbadge.io/status?path=nishantapatil3.github.io)
-

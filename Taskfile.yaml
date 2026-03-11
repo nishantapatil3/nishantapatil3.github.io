@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  serve:
+    desc: Serve the site locally on http://localhost:8000
+    cmds:
+      - python3 -m http.server 8000
+
+  dev:
+    desc: Serve the site using npm (same as python http.server)
+    cmds:
+      - npm start
+
+  full:
+    desc: Full stack manual test run (static site server)
+    cmds:
+      - python3 -m http.server 8000
+
+  import-medium:
+    desc: Import Medium posts into /posts (RSS feed)
+    cmds:
+      - node scripts/import-medium.js
+
+  import-outshift:
+    desc: Import Outshift posts into /posts (Playwright)
+    cmds:
+      - node scripts/import-outshift.js

@@ -1,0 +1,142 @@
+:root {
+    --posts-bg: #f7f8fb;
+    --posts-text: #1f2937;
+    --posts-muted: #6b7280;
+    --posts-accent: #2f5fdb;
+    --posts-card: #ffffff;
+    --posts-border: rgba(31, 41, 55, 0.1);
+}
+
+body.posts-page {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--posts-bg);
+    color: var(--posts-text);
+}
+
+.posts-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+}
+
+.posts-nav {
+    margin-bottom: 24px;
+}
+
+.posts-nav a {
+    color: var(--posts-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.posts-hero {
+    margin-bottom: 32px;
+}
+
+.posts-hero h1 {
+    font-size: 36px;
+    margin: 0 0 8px;
+}
+
+.posts-hero p {
+    color: var(--posts-muted);
+    margin: 0;
+}
+
+.posts-list {
+    display: grid;
+    gap: 16px;
+}
+
+.post-item {
+    background: var(--posts-card);
+    border: 1px solid var(--posts-border);
+    border-radius: 14px;
+    padding: 20px 22px;
+}
+
+.post-item h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+}
+
+.post-item a {
+    color: var(--posts-text);
+    text-decoration: none;
+}
+
+.post-item a:hover {
+    color: var(--posts-accent);
+}
+
+.post-item time {
+    color: var(--posts-muted);
+    font-size: 14px;
+}
+
+.post-content {
+    background: var(--posts-card);
+    border: 1px solid var(--posts-border);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.post-header h1 {
+    margin: 0 0 6px;
+    font-size: 34px;
+}
+
+.post-header time {
+    color: var(--posts-muted);
+    font-size: 14px;
+}
+
+.post-body {
+    margin-top: 24px;
+    line-height: 1.7;
+}
+
+.post-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 16px auto;
+}
+
+.post-body figure {
+    margin: 24px 0;
+}
+
+.post-body h2,
+.post-body h3 {
+    margin-top: 24px;
+}
+
+.post-body pre {
+    background: #111827;
+    color: #f9fafb;
+    padding: 16px;
+    border-radius: 12px;
+    overflow: auto;
+}
+
+.post-body code {
+    background: rgba(31, 41, 55, 0.08);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.posts-error {
+    color: var(--posts-muted);
+}
+
+@media (max-width: 640px) {
+    .posts-container {
+        padding: 32px 18px 60px;
+    }
+
+    .post-content {
+        padding: 22px;
+    }
+}

@@ -1,7 +1,7 @@
-// Newsletter dynamic loader
+// Posts dynamic loader
 class NewsletterLoader {
     constructor() {
-        this.newsletterDir = 'newsletter/';
+        this.postsDir = 'posts/';
         this.postsContainer = document.querySelector('.newsletter-posts');
     }
 
@@ -10,23 +10,23 @@ class NewsletterLoader {
             const posts = await this.fetchPosts();
             this.renderPosts(posts);
         } catch (error) {
-            console.error('Error loading newsletter posts:', error);
+            console.error('Error loading posts:', error);
             this.renderError();
         }
     }
 
     async fetchPosts() {
-        const response = await fetch(`${this.newsletterDir}index.json`);
+        const response = await fetch(`${this.postsDir}index.json`);
         if (!response.ok) {
-            throw new Error('Failed to fetch newsletter index');
+            throw new Error('Failed to fetch posts index');
         }
         return await response.json();
     }
 
-    async fetchMarkdown(filename) {
-        const response = await fetch(`${this.newsletterDir}${filename}`);
+    async fetchMarkdown(slug) {
+        const response = await fetch(`${this.postsDir}${slug}/index.md`);
         if (!response.ok) {
-            throw new Error(`Failed to fetch ${filename}`);
+            throw new Error(`Failed to fetch ${slug}`);
         }
         return await response.text();
     }
@@ -51,10 +51,13 @@ class NewsletterLoader {
             });
         }
 
-        // Simple markdown parsing
-        body = this.convertMarkdownToHTML(body.trim());
+        const trimmedBody = body.trim();
+        const readTime = this.calculateReadTime(trimmedBody);
 
-        return { frontmatter, body };
+        // Simple markdown parsing
+        const htmlBody = this.convertMarkdownToHTML(trimmedBody);
+
+        return { frontmatter, body: htmlBody, readTime };
     }
 
     convertMarkdownToHTML(markdown) {
@@ -91,10 +94,27 @@ class NewsletterLoader {
         return html;
     }
 
+
     formatDate(dateString) {
         const date = new Date(dateString);
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
+        const options = { year: 'numeric', month: 'short', day: '2-digit' };
+        return date.toLocaleDateString('en-US', options).replace(',', '');
+    }
+
+    calculateReadTime(markdown) {
+        const plainText = markdown
+            .replace(/```[\s\S]*?```/g, ' ')
+            .replace(/`([^`]+)`/g, '$1')
+            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+            .replace(/[*_]{1,2}([^*_]+)[*_]{1,2}/g, '$1')
+            .replace(/^#{1,6}\s+/gm, '')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+
+        const words = plainText ? plainText.split(' ').length : 0;
+        const minutes = Math.max(1, Math.round(words / 200));
+        return `${minutes} min read`;
     }
 
     async renderPosts(posts) {
@@ -107,8 +127,8 @@ class NewsletterLoader {
 
         for (const post of posts) {
             try {
-                const markdown = await this.fetchMarkdown(post.file);
-                const { frontmatter, body } = this.parseMarkdown(markdown);
+                const markdown = await this.fetchMarkdown(post.slug);
+                const { frontmatter, readTime } = this.parseMarkdown(markdown);
 
                 const article = document.createElement('article');
                 article.className = 'newsletter-post';
@@ -116,13 +136,17 @@ class NewsletterLoader {
                 const title = frontmatter.title || post.title;
                 const date = frontmatter.date || post.date;
 
+                const postUrl = post.slug ? `posts/${post.slug}/` : '';
+
                 article.innerHTML = `
                     <div class="post-header">
-                        <h3>${title}</h3>
-                        <time datetime="${date}">${this.formatDate(date)}</time>
-                    </div>
-                    <div class="post-content">
-                        ${body}
+                        <h3>${postUrl ? `<a href="${postUrl}">${title}</a>` : title}</h3>
+                        <div class="post-meta">
+                            <span class="post-meta-label">Published:</span>
+                            <time datetime="${date}">${this.formatDate(date)}</time>
+                            <span class="post-meta-sep">•</span>
+                            <span class="post-meta-read">${readTime}</span>
+                        </div>
                     </div>
                 `;
 
@@ -139,14 +163,14 @@ class NewsletterLoader {
         this.postsContainer.innerHTML = `
             <article class="newsletter-post">
                 <div class="post-content">
-                    <p>Unable to load newsletter posts. Please check back later.</p>
+                    <p>Unable to load posts. Please check back later.</p>
                 </div>
             </article>
         `;
     }
 }
 
-// Initialize newsletter loader when DOM is ready
+// Initialize posts loader when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         const loader = new NewsletterLoader();

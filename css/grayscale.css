@@ -296,10 +296,37 @@ a:hover {
   margin: 0 0 0.25rem 0;
 }
 
+.post-header h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-header h3 a:hover {
+  color: var(--accent-color);
+}
+
 .post-header time {
   font-size: 0.75rem;
   color: var(--text-secondary);
   font-weight: 400;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  align-items: center;
+}
+
+.post-meta-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.post-meta-sep {
+  color: var(--text-secondary);
 }
 
 .post-content p {
@@ -308,6 +335,7 @@ a:hover {
   color: var(--text-secondary);
   line-height: 1.5;
 }
+
 
 .post-content p:last-child {
   margin-bottom: 0;
