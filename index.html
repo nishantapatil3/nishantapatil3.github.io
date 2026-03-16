@@ -1,298 +1,188 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Nishant Patil — Software engineer specializing in network systems, security, and scalable infrastructure."
-    />
-    <title>Nishant Patil</title>
-    <script>
-      (() => {
-        const stored = localStorage.getItem('theme');
-        const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light';
-        const theme = stored || preferred;
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
-    <link rel="stylesheet" href="/src/styles.css" />
-  </head>
-  <body>
-    <div class="top-actions">
-      <div class="action-controls">
-        <label class="sr-only" for="post-search">Search posts</label>
-        <input
-          id="post-search"
-          class="search-input"
-          type="search"
-          placeholder="Search posts"
-          autocomplete="off"
-        />
-        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Nishant Patil — Software engineer specializing in network systems, security, and scalable infrastructure." />
+  <title>Nishant Patil</title>
+  <script>
+    (() => {
+      const stored = localStorage.getItem('theme');
+      const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+      const theme = stored || preferred;
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <div class="top-actions">
+    <div class="action-controls">
+      <label class="sr-only" for="post-search">Search posts</label>
+      <input id="post-search" class="search-input" type="search" placeholder="Search posts" autocomplete="off" />
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><svg viewBox="0 0 24 24"
+          aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"
+            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg></button>
     </div>
-    <div class="layout">
-      <aside class="sidebar">
-        <div class="sidebar-inner">
-          <a class="brand" href="http://localhost:5173">Nishant Patil</a>
-          <p class="role">Software engineer · network systems · security</p>
-          <a
-            class="action-link"
-            href="/digital-twin/index.html"
-            title="Chat with My Digital Twin"
-          >
-            Chat with My Digital Twin
+  </div>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <a class="brand" href="/">Nishant Patil</a>
+        <p class="role">Software engineer · network systems · security</p>
+        <a class="action-link" href="/digital-twin/index.html" title="Chat with My Digital Twin">
+          Chat with My Digital Twin
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#writing">Writing</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="socials" aria-label="Social links">
+          <a href="https://github.com/nishantapatil3" class="social-link" title="Nishant Patil on GitHub"
+            target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+              </path>
+            </svg>
+            <span class="sr-only">GitHub</span>
           </a>
-          <nav class="nav-links" aria-label="Primary">
-            <a href="#writing">Writing</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <div class="socials" aria-label="Social links">
-            <a
-              href="https://github.com/nishantapatil3"
-              class="social-link"
-              title="Nishant Patil on GitHub"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-                ></path>
-              </svg>
-              <span class="sr-only">GitHub</span>
-            </a>
-            <a
-              href="https://twitter.com/nishantapatil3"
-              class="social-link"
-              title="Nishant Patil on X"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-              </svg>
-              <span class="sr-only">X</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/nishantapatil3"
-              class="social-link"
-              title="Nishant Patil on LinkedIn"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M8 11v5"></path>
-                <path d="M8 8v.01"></path>
-                <path d="M12 16v-5"></path>
-                <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
-                <path
-                  d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
-                ></path>
-              </svg>
-              <span class="sr-only">LinkedIn</span>
-            </a>
-            <a
-              href="mailto:nishant.apatil3@gmail.com"
-              class="social-link"
-              title="Send an email to Nishant Patil"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
-                <path d="M3 7l9 6l9 -6"></path>
-              </svg>
-              <span class="sr-only">Email</span>
-            </a>
-          </div>
+          <a href="https://twitter.com/nishantapatil3" class="social-link" title="Nishant Patil on X" target="_blank"
+            rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+            </svg>
+            <span class="sr-only">X</span>
+          </a>
+          <a href="https://www.linkedin.com/in/nishantapatil3" class="social-link" title="Nishant Patil on LinkedIn"
+            target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 11v5"></path>
+              <path d="M8 8v.01"></path>
+              <path d="M12 16v-5"></path>
+              <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
+              <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="mailto:nishant.apatil3@gmail.com" class="social-link" title="Send an email to Nishant Patil">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+              <path d="M3 7l9 6l9 -6"></path>
+            </svg>
+            <span class="sr-only">Email</span>
+          </a>
         </div>
-      </aside>
+      </div>
+    </aside>
 
-      <main id="top" class="content">
-        <section class="intro">
-          <h1>Nishant Patil</h1>
-          <div class="socials" aria-label="Social links">
-            <a
-              href="https://github.com/nishantapatil3"
-              class="social-link"
-              title="Nishant Patil on GitHub"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path
-                  d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-                ></path>
-              </svg>
-              <span class="sr-only">GitHub</span>
-            </a>
-            <a
-              href="https://twitter.com/nishantapatil3"
-              class="social-link"
-              title="Nishant Patil on X"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-              </svg>
-              <span class="sr-only">X</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/nishantapatil3"
-              class="social-link"
-              title="Nishant Patil on LinkedIn"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M8 11v5"></path>
-                <path d="M8 8v.01"></path>
-                <path d="M12 16v-5"></path>
-                <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
-                <path
-                  d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"
-                ></path>
-              </svg>
-              <span class="sr-only">LinkedIn</span>
-            </a>
-            <a
-              href="mailto:nishant.apatil3@gmail.com"
-              class="social-link"
-              title="Send an email to Nishant Patil"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="social-icon"
-                aria-hidden="true"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
-                <path d="M3 7l9 6l9 -6"></path>
-              </svg>
-              <span class="sr-only">Email</span>
-            </a>
-          </div>
-          <p>
-            Software Engineer at Cisco, building cloud-native platforms, service mesh
-            infrastructure, and secure networking systems across Kubernetes and multi-cloud
-            environments.
+    <main id="top" class="content">
+      <section class="intro">
+        <h1>Nishant Patil</h1>
+        <div class="socials" aria-label="Social links">
+          <a href="https://github.com/nishantapatil3" class="social-link" title="Nishant Patil on GitHub"
+            target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+              </path>
+            </svg>
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a href="https://twitter.com/nishantapatil3" class="social-link" title="Nishant Patil on X" target="_blank"
+            rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+              <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+            </svg>
+            <span class="sr-only">X</span>
+          </a>
+          <a href="https://www.linkedin.com/in/nishantapatil3" class="social-link" title="Nishant Patil on LinkedIn"
+            target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M8 11v5"></path>
+              <path d="M8 8v.01"></path>
+              <path d="M12 16v-5"></path>
+              <path d="M16 16v-3a2 2 0 1 0 -4 0"></path>
+              <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path>
+            </svg>
+            <span class="sr-only">LinkedIn</span>
+          </a>
+          <a href="mailto:nishant.apatil3@gmail.com" class="social-link" title="Send an email to Nishant Patil">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="social-icon" aria-hidden="true">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+              <path d="M3 7l9 6l9 -6"></path>
+            </svg>
+            <span class="sr-only">Email</span>
+          </a>
+        </div>
+        <p>
+          Software Engineer at Cisco, building cloud-native platforms, service mesh
+          infrastructure, and secure networking systems across Kubernetes and multi-cloud
+          environments.
+        </p>
+        <p>
+          I focus on reliability, security, and developer experience, with recent work
+          in agentic AI infrastructure, post-quantum security assessments, and
+          observability at scale.
+        </p>
+      </section>
+
+      <section id="writing" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Writing</h2>
+          <p class="section-subtitle">
+            Notes on technology, engineering, and lessons I’m learning along the way.
           </p>
-          <p>
-            I focus on reliability, security, and developer experience, with recent work
-            in agentic AI infrastructure, post-quantum security assessments, and
-            observability at scale.
+        </div>
+        <div class="posts-list" data-posts>
+          <article class="post-item">
+            <h3>Loading recent posts…</h3>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">
+            Email works best. I’m open to thoughtful collaborations and challenging
+            problems.
           </p>
-        </section>
+        </div>
+        <div class="inline-links">
+          <a href="mailto:nishant.apatil3@gmail.com">nishant.apatil3@gmail.com</a>
+        </div>
+      </section>
+    </main>
+  </div>
 
-        <section id="writing" class="section">
-          <div class="section-header">
-            <h2 class="section-title">Writing</h2>
-            <p class="section-subtitle">
-              Notes on technology, engineering, and lessons I’m learning along the way.
-            </p>
-          </div>
-          <div class="posts-list" data-posts>
-            <article class="post-item">
-              <h3>Loading recent posts…</h3>
-            </article>
-          </div>
-        </section>
+  <script type="module" src="/src/main.js"></script>
+</body>
 
-        <section id="contact" class="section">
-          <div class="section-header">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">
-              Email works best. I’m open to thoughtful collaborations and challenging
-              problems.
-            </p>
-          </div>
-          <div class="inline-links">
-            <a href="mailto:nishant.apatil3@gmail.com">nishant.apatil3@gmail.com</a>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <script type="module" src="/src/main.js"></script>
-  </body>
 </html>
