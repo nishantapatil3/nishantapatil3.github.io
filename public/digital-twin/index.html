@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat with My Digital Twin</title>
+    <script>
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <link rel="stylesheet" href="/posts/site.css" />
+    <style>
+      body { min-height: 100vh; }
+      .chat-container {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px;
+      }
+      .chat-frame {
+        width: 100%;
+        height: min(70vh, 760px);
+        border: none;
+        border-radius: 12px;
+        background: var(--surface);
+      }
+    </style>
+  </head>
+  <body class="post-page">
+    <header class="site-header">
+      <div class="container">
+        <a class="nav-link" href="/index.html">← Back to home</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="posts-hero">
+        <h1>Chat with My Digital Twin</h1>
+        <p>Ask about my work, projects, and interests.</p>
+      </section>
+
+      <section class="chat-container">
+        <iframe
+          class="chat-frame"
+          src="https://nishantapatil3-nishant-chatbot.hf.space"
+          title="Nishant Patil Digital Twin"
+          loading="lazy"
+        ></iframe>
+      </section>
+    </main>
+  </body>
+</html>

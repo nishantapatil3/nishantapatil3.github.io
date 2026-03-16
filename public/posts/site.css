@@ -12,6 +12,17 @@
   --radius: 16px;
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --panel: #f7f4ef;
+  --ink: #0b0f17;
+  --muted: #2f3947;
+  --accent: #0a6b57;
+  --line: #d6d0c6;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -22,6 +33,10 @@ body {
   background: radial-gradient(circle at 10% 10%, #121a2a 0%, transparent 40%),
     radial-gradient(circle at 90% 20%, #172032 0%, transparent 45%), var(--bg);
   color: var(--ink);
+}
+
+:root[data-theme="light"] body {
+  background: #ffffff;
 }
 
 a {
