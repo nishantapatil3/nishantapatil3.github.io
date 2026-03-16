@@ -6,7 +6,7 @@ const http = require('http');
 const https = require('https');
 const { chromium } = require('playwright');
 
-const POSTS_DIR = path.join(__dirname, '..', 'posts');
+const POSTS_DIR = path.join(__dirname, '..', 'public', 'posts');
 const INDEX_PATH = path.join(POSTS_DIR, 'index.json');
 const IMAGE_DIR_NAME = 'images';
 
@@ -61,27 +61,30 @@ function buildMarkdown({ title, date, html, sourceUrl }) {
 }
 
 function buildPostHtml(title) {
-    return `<!DOCTYPE html>\n` +
-        `<html lang="en">\n\n` +
-        `<head>\n` +
-        `    <meta charset="utf-8">\n` +
-        `    <meta name="viewport" content="width=device-width, initial-scale=1">\n` +
-        `    <title>${title}</title>\n\n` +
-        `    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">\n` +
-        `    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">\n` +
-        `    <link href="../../css/posts.css" rel="stylesheet">\n` +
-        `</head>\n\n` +
-        `<body class="posts-page">\n` +
-        `    <main class="posts-container">\n` +
-        `        <nav class="posts-nav">\n` +
-        `            <a href="../index.html">← Back to Posts</a>\n` +
-        `        </nav>\n\n` +
-        `        <article class="post-content" aria-live="polite">\n` +
-        `            <p>Loading post…</p>\n` +
-        `        </article>\n` +
+    return `<!doctype html>\n` +
+        `<html lang="en">\n` +
+        `  <head>\n` +
+        `    <meta charset="utf-8" />\n` +
+        `    <meta name="viewport" content="width=device-width, initial-scale=1" />\n` +
+        `    <title>${title}</title>\n` +
+        `    <link rel="stylesheet" href="/posts/site.css" />\n` +
+        `  </head>\n` +
+        `  <body class="post-page">\n` +
+        `    <header class="site-header">\n` +
+        `      <div class="container">\n` +
+        `        <a class="nav-link" href="/posts/">← Back to writing</a>\n` +
+        `      </div>\n` +
+        `    </header>\n\n` +
+        `    <main class="container">\n` +
+        `      <article class="post-content" aria-live="polite">\n` +
+        `        <p>Loading post…</p>\n` +
+        `      </article>\n` +
         `    </main>\n\n` +
-        `    <script src="../../js/post.js"></script>\n` +
-        `</body>\n\n` +
+        `    <footer class="site-footer">\n` +
+        `      <div class="container">Designed &amp; built by Nishant Patil.</div>\n` +
+        `    </footer>\n\n` +
+        `    <script src="/posts/post.js"></script>\n` +
+        `  </body>\n` +
         `</html>\n`;
 }
 

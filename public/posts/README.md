@@ -37,7 +37,7 @@ Put images in the same post folder and reference them by filename:
 Example structure:
 
 ```
-posts/2025-12-04/
+public/posts/2025-12-04/
   index.md
   index.html
   diagram.png
@@ -75,7 +75,7 @@ Options:
 - `node scripts/import-medium.js --no-snapshot` to skip saving `source.html`
 
 Each import saves a static HTML snapshot from Medium as `source.html` inside the post folder.
-Images referenced in the Medium content are downloaded into `posts/<slug>/images/` and rewritten to local paths.
+Images referenced in the Medium content are downloaded into `public/posts/<slug>/images/` and rewritten to local paths.
 
 ## Import From Outshift
 
@@ -93,7 +93,7 @@ Options:
 
 ## Example Post
 
-See `2025-12-03/index.md` and `2025-12-03/index.html` for a complete example.
+See `public/posts/2025-12-03/index.md` and `public/posts/2025-12-03/index.html` for a complete example.
 
 ## Markdown Features Supported
 
@@ -103,4 +103,4 @@ See `2025-12-03/index.md` and `2025-12-03/index.html` for a complete example.
 - Inline code and code blocks
 - Paragraphs with automatic formatting
 
-Posts are automatically sorted by date (newest first) and rendered in the left sidebar of the website.
+Posts are automatically sorted by date (newest first) and rendered on the homepage and the `/posts/` page.
