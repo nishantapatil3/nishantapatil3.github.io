@@ -13,16 +13,16 @@
   --radius: 16px;
 }
 
-[data-theme="light"] {
+:root[data-theme="light"] {
   color-scheme: light;
   --bg: #f5f1ea;
   --surface: #ffffff;
   --panel: #f7f4ef;
-  --ink: #1c2230;
-  --muted: #5f6778;
+  --ink: #0b0f17;
+  --muted: #2f3947;
   --accent: #0a6b57;
-  --line: #e1dbd0;
-  --highlight: #f0ebe2;
+  --line: #d6d0c6;
+  --highlight: #efe8dd;
 }
 
 * {
@@ -35,6 +35,10 @@ body {
   background: radial-gradient(circle at 10% 10%, #121a2a 0%, transparent 40%),
     radial-gradient(circle at 90% 20%, #172032 0%, transparent 45%), var(--bg);
   color: var(--ink);
+}
+
+:root[data-theme="light"] body {
+  background: #ffffff;
 }
 
 a {
@@ -75,8 +79,13 @@ a:hover {
   box-shadow: 0 10px 24px rgba(6, 9, 14, 0.45);
 }
 
-[data-theme="light"] .top-actions {
+:root[data-theme="light"] .top-actions {
   background: rgba(255, 255, 255, 0.8);
+}
+
+:root[data-theme="light"] .social-link,
+:root[data-theme="light"] .action-link {
+  color: var(--ink);
 }
 
 .action-link {
