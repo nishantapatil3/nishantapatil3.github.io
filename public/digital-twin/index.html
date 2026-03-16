@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chat with My Digital Twin</title>
     <script>
-      const theme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+        const theme = stored || preferred;
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
     </script>
     <link rel="stylesheet" href="/posts/site.css" />
     <style>
@@ -29,7 +35,10 @@
   <body class="post-page">
     <header class="site-header">
       <div class="container">
-        <a class="nav-link" href="/index.html">← Back to home</a>
+        <div class="header-row">
+          <a class="nav-link" href="/index.html">← Back to home</a>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        </div>
       </div>
     </header>
 
@@ -48,5 +57,6 @@
         ></iframe>
       </section>
     </main>
+      <script src="/posts/theme.js"></script>
   </body>
 </html>
