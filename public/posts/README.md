@@ -61,34 +61,6 @@ public/posts/2025-12-04/
 
    **Note:** Add new posts at the top of the array. They will be automatically sorted by date on the website.
 
-## Import From Medium
-
-If you want to pull posts from Medium, run:
-
-```bash
-task import-medium
-```
-
-Options:
-- `node scripts/import-medium.js --limit=10` to cap imports
-- `node scripts/import-medium.js --force` to overwrite existing folders
-- `node scripts/import-medium.js --no-snapshot` to skip saving `source.html`
-
-Each import saves a static HTML snapshot from Medium as `source.html` inside the post folder.
-Images referenced in the Medium content are downloaded into `public/posts/<slug>/images/` and rewritten to local paths.
-
-## Import From Outshift
-
-The Outshift author posts are rendered client-side, so this uses Playwright to capture the article HTML.
-
-```bash
-task import-outshift
-```
-
-Options:
-- `node scripts/import-outshift.js --force` to overwrite existing folders
-- `node scripts/import-outshift.js --urls=<url1,url2>` to import specific posts
-
 5. **Add `index.html`** inside the folder by copying an existing post page (template).
 
 ## Example Post
