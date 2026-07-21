@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Resume of Nishant Patil — software engineer specializing in agentic AI, cloud-native systems, and cloud security." />
+  <title>Resume — Nishant Patil</title>
+  <script>
+    (() => {
+      const stored = localStorage.getItem('theme');
+      const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', stored || preferred);
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/styles.css" />
+  <link rel="stylesheet" href="/src/resume.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Nishant Patil — home">NP<span class="brand-dot">.</span></a>
+    <nav class="header-nav" aria-label="Primary navigation">
+      <a href="/#about">About</a><a href="/#writing">Writing</a><a href="/resume/" aria-current="page">Resume</a><a href="/#contact">Contact</a>
+    </nav>
+    <div class="action-controls">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg></button>
+    </div>
+  </header>
+
+  <main class="resume-page">
+    <section class="resume-hero">
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h1>Nishant Patil</h1>
+        <p class="resume-title">Software engineer · Agentic AI · Cloud-native systems · Cloud security</p>
+      </div>
+      <div class="resume-contact">
+        <a href="mailto:nishantapatil3@gmail.com">nishantapatil3@gmail.com</a>
+        <a href="https://www.linkedin.com/in/nishantapatil3" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        <span>San Francisco Bay Area</span>
+      </div>
+    </section>
+
+    <section class="resume-section summary">
+      <p class="resume-label">Profile</p>
+      <div><p>AI infrastructure and cloud-native technical lead with 9+ years of experience building distributed systems, agentic AI platforms, service mesh, and secure networking products. I turn ambiguous platform ideas into dependable, usable systems — from architecture through release.</p></div>
+    </section>
+
+    <section class="resume-section">
+      <p class="resume-label">Experience</p>
+      <div class="experience-list">
+        <article class="experience">
+          <div class="experience-heading"><div><h2>Software Engineer 4</h2><p>Cisco Systems · San Jose, CA</p></div><time>May 2023 — Present</time></div>
+          <div class="initiative"><h3>Distributed Cognitive-Fabric Platform</h3><ul><li>Architected a distributed cognitive-fabric platform from zero to foundation, spanning control-plane data model, management plane, data plane, shared agent memory, and full-stack deployment.</li><li>Led integration across eight backend, reasoning, memory, graph, time-series, and web services; created one-command deployment that unblocked six-plus engineers.</li><li>Designed secure provisioning with API-key RBAC, Rego-based multi-tenant isolation, distributed heartbeat reconciliation, audit trails, user invites, and API-key management.</li></ul></div>
+          <div class="initiative"><h3>AGNTCY.org · Internet of Agents infrastructure</h3><ul><li>Owned backend architecture for the Linux Foundation-donated AGNTCY Directory SaaS, adding MCP/A2A record management, unified OASF records, CRUD and translation APIs, and version-aware schemas.</li><li>Drove OASF 0.3.1 to 0.7.0 migration, semantic search, protobuf/gRPC contracts, and schema compatibility across SaaS, UI, and core repositories.</li></ul></div>
+          <div class="initiative"><h3>Post-Quantum Cryptography Assessment</h3><ul><li>Led the PQC assessment PoC from research to customer-facing architecture, parsing NetFlow/IPFIX and TLS 1.3 handshakes to classify quantum-safe enterprise sessions.</li><li>Partnered with Product, Marketing, Customer Experience, Sales, and cross-business-unit teams on 12 major customer engagements.</li></ul></div>
+          <div class="initiative"><h3>Motific.ai · Enterprise AI gateway</h3><ul><li>Scaled the AI gateway from 14 to 39 LLM models across OpenAI, Gemini, Vertex, AWS, and Mistral; added image generation, speech-to-text, and text-to-speech provider endpoints.</li><li>Led latency and cost dashboards, improving RAG ingestion from 200 KB/s to 550 KB/s; built RAG pre-ingestion guardrails with Cisco Umbrella DLP.</li></ul></div>
+        </article>
+        <article class="experience">
+          <div class="experience-heading"><div><h2>Software Engineer 3</h2><p>Cisco Systems · San Jose, CA</p></div><time>Jun 2019 — May 2023</time></div>
+          <div class="initiative"><h3>Cisco Calisti · Istio + Kafka</h3><ul><li>Led OpenShift, Istio multicluster, RBAC, and operator workstreams for Red Hat Marketplace packaging and hybrid deployments.</li><li>Integrated Flagger canary delivery, cert-manager rotation, OIDC/Dex auth, and SPIFFE-SPIRE single and federated trust domains.</li><li>Reduced service-mesh CI runtime from 31 to 19 minutes and resolved release-blocking upgrade and certificate-management defects.</li></ul></div>
+          <div class="initiative"><h3>Cellular gateway</h3><ul><li>Delivered day-0 plug-and-play provisioning, Cisco Challenge token support-shell access, and Linux systemd service management for enterprise cellular gateways.</li></ul></div>
+        </article>
+        <article class="experience compact-experience"><div class="experience-heading"><div><h2>Software Engineer 2</h2><p>Juniper Networks · Sunnyvale, CA</p></div><time>Jun 2017 — Jun 2019</time></div><ul><li>Built Source Routed MPLS and transit MPLS traffic statistics counters and debugging CLI commands for network telemetry.</li><li>Scaled the forwarding information base on a data-center router from 1M to 2M routes.</li></ul></article>
+        <article class="experience compact-experience"><div class="experience-heading"><div><h2>Software Engineering Intern</h2><p>Juniper Networks · Sunnyvale, CA</p></div><time>Jun 2016 — Aug 2016</time></div><ul><li>Developed real-time network monitoring infrastructure using the Influx stack, detecting anomalies and alerting users during packet drops and network errors.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="resume-section skills-section"><p class="resume-label">Technical strengths</p><div class="skills-grid"><div><h3>AI & agentic platforms</h3><p>MCP, A2A, OASF, RAG, LiteLLM, LangChain, OpenTelemetry, semantic negotiation, TimescaleDB, Neo4j</p></div><div><h3>Cloud-native platforms</h3><p>Kubernetes, OpenShift, EKS, GKE, AKS, Docker, Helm, K3s, Istio, Argo CD, Flux CD, GitHub Actions</p></div><div><h3>Security & networking</h3><p>SPIFFE-SPIRE, Rego/RBAC, TLS 1.3, PQC assessment, NetFlow/IPFIX, Cisco Umbrella DLP, multi-tenant isolation</p></div><div><h3>Languages & APIs</h3><p>Golang, Python, Bash, GraphQL, gRPC, Protocol Buffers</p></div></div></section>
+
+    <section class="resume-section education-section"><p class="resume-label">Education</p><div class="education-grid"><div><h3>San Jose State University</h3><p>Master of Science in Computer Engineering</p></div><div><h3>B.V.B. College of Engineering & Technology</h3><p>Bachelor of Engineering in Electronics and Communication Engineering</p></div></div></section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
