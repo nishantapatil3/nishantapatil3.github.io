@@ -101,6 +101,8 @@ sudo /usr/local/libexec/apple-hid-battery-override --status
 
 On my machine, the result changed from **0%** and **4%** to the actual **94%** and **95%** in Ubuntu's Power window.
 
+![Ubuntu Power settings showing the corrected battery levels for the Magic Keyboard and Magic Trackpad](images/ubuntu-power-apple-battery-levels.png)
+
 No GNOME extension. No replacement battery widget. No patched kernel. The rest of the desktop continues to use UPower normally.
 
 ### Why I am sharing this

@@ -68,6 +68,10 @@ class PostPage {
     html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
     html = html.replace(/_(.*?)_/g, '<em>$1</em>');
 
+    html = html.replace(
+      /!\[([^\]]*)\]\(([^\)]+)\)/g,
+      '<figure><img src="$2" alt="$1" loading="lazy" /></figure>'
+    );
     html = html.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2">$1</a>');
 
     html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
