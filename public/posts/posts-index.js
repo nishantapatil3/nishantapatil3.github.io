@@ -23,7 +23,9 @@ class PostsIndex {
   }
 
   formatDate(dateString) {
-    const date = new Date(dateString);
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(dateString)
+      ? new Date(`${dateString}T00:00:00`)
+      : new Date(dateString);
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
