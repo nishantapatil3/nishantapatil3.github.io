@@ -6,12 +6,10 @@
     <title>Chat with My Digital Twin</title>
     <script>
       (() => {
-        const stored = localStorage.getItem('theme');
         const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
           : 'light';
-        const theme = stored || preferred;
-        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme', preferred);
       })();
     </script>
     <link rel="stylesheet" href="/posts/site.css" />

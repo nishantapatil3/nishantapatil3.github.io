@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Writing by Nishant Patil — notes on technology, engineering, and lessons learned." />
+  <title>Writing — Nishant Patil</title>
+  <script>
+    (() => {
+      const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+      document.documentElement.setAttribute('data-theme', preferred);
+    })();
+  </script>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Nishant Patil — home">NP<span class="brand-dot">.</span></a>
+    <nav class="header-nav" aria-label="Primary navigation">
+      <a href="/#about">About</a>
+      <a href="/writing/" aria-current="page">Writing</a>
+      <a href="/resume/">Resume</a>
+    </nav>
+    <div class="action-controls">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" />
+        <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </svg></button>
+    </div>
+  </header>
+
+  <main class="writing-page">
+    <section class="writing-hero">
+      <p class="eyebrow">Field notes</p>
+      <h1 class="section-title">Writing</h1>
+      <p class="section-subtitle">Notes on technology, engineering, and lessons I’m learning along the way.</p>
+      <div class="writing-search">
+        <label class="sr-only" for="post-search">Search posts</label>
+        <div class="search-wrap">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+          <input id="post-search" class="search-input" type="search" placeholder="Search writing" autocomplete="off" />
+        </div>
+      </div>
+    </section>
+    <section class="writing-list" aria-label="Writing">
+      <div class="posts-list" data-posts>
+        <article class="post-item">
+          <h3>Loading recent posts…</h3>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

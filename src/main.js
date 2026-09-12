@@ -59,10 +59,6 @@ function getPreferredTheme() {
 }
 
 function getInitialTheme() {
-  const stored = localStorage.getItem('theme');
-  if (stored === 'dark' || stored === 'light') return stored;
-  const fromDom = document.documentElement.dataset.theme;
-  if (fromDom === 'dark' || fromDom === 'light') return fromDom;
   return getPreferredTheme();
 }
 
@@ -74,24 +70,15 @@ function setupThemeToggle() {
 
   toggle.addEventListener('click', () => {
     const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', nextTheme);
     applyTheme(nextTheme);
   });
 
   if (window.matchMedia) {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     media.addEventListener('change', (event) => {
-      if (!localStorage.getItem('theme')) {
-        applyTheme(event.matches ? 'dark' : 'light');
-      }
+      applyTheme(event.matches ? 'dark' : 'light');
     });
   }
-
-  window.addEventListener('storage', (event) => {
-    if (event.key === 'theme' && (event.newValue === 'dark' || event.newValue === 'light')) {
-      applyTheme(event.newValue);
-    }
-  });
 }
 
 async function loadPosts() {

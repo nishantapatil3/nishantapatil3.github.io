@@ -8,9 +8,8 @@
   <title>Resume — Nishant Patil</title>
   <script>
     (() => {
-      const stored = localStorage.getItem('theme');
       const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-theme', stored || preferred);
+      document.documentElement.setAttribute('data-theme', preferred);
     })();
   </script>
   <link rel="stylesheet" href="/src/styles.css" />
@@ -21,7 +20,7 @@
   <header class="site-header">
     <a class="brand" href="/" aria-label="Nishant Patil — home">NP<span class="brand-dot">.</span></a>
     <nav class="header-nav" aria-label="Primary navigation">
-      <a href="/#about">About</a><a href="/#writing">Writing</a><a href="/resume/" aria-current="page">Resume</a><a href="/#contact">Contact</a>
+      <a href="/#about">About</a><a href="/writing/">Writing</a><a href="/resume/" aria-current="page">Resume</a>
     </nav>
     <div class="action-controls">
       <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg></button>
@@ -36,7 +35,7 @@
         <p class="resume-title">Software engineer · Agentic AI · Cloud-native systems · Cloud security</p>
       </div>
       <div class="resume-contact">
-        <a href="mailto:nishantapatil3@gmail.com">nishantapatil3@gmail.com</a>
+        <a href="mailto:nishant.apatil3@gmail.com">nishant.apatil3@gmail.com</a>
         <a href="https://www.linkedin.com/in/nishantapatil3" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         <span>San Francisco Bay Area</span>
       </div>
