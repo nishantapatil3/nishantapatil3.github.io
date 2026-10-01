@@ -69,10 +69,11 @@ See `public/posts/2025-12-03/index.md` and `public/posts/2025-12-03/index.html` 
 
 ## Markdown Features Supported
 
-- Headers (H1, H2, H3)
-- Bold and italic text
-- Links
-- Inline code and code blocks
-- Paragraphs with automatic formatting
+Posts are parsed with [marked](https://marked.js.org/) (GitHub-flavored markdown) and code is coloured with [highlight.js](https://highlightjs.org/). Both are vendored in `vendor/` and loaded by each post's `index.html`.
+
+- Headers, bold, italic, lists, blockquotes, tables
+- Links, including bare `https://` URLs (external links open in a new tab)
+- Inline code and fenced code blocks with syntax highlighting; add a language after the fence (```` ```bash ````) or let it be auto-detected
+- A language label and Copy button on every code block
 
 Posts are automatically sorted by date (newest first) and rendered on the homepage and the `/posts/` page.

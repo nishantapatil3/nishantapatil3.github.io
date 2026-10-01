@@ -1,4 +1,8 @@
 class PostPage {
+  static AUTO_LANGUAGES = ['bash', 'shell', 'json', 'yaml', 'python', 'javascript', 'go', 'dockerfile', 'diff'];
+  static SHELL_PATTERN =
+    /^\s*(?:[$❯#]\s|\.\/|(?:git|sudo|cd|ls|l|cp|mv|curl|wget|brew|npm|npx|pip|python3?|docker|kubectl|helm|kind|task|make|qemu-img|systemctl|export)\b)/;
+
   constructor() {
     this.container = document.querySelector('.post-content');
   }
@@ -56,6 +60,13 @@ class PostPage {
   }
 
   convertMarkdownToHTML(markdown) {
+    if (window.marked) {
+      return window.marked.parse(markdown, { gfm: true, breaks: false });
+    }
+    return this.convertMarkdownToHTMLFallback(markdown);
+  }
+
+  convertMarkdownToHTMLFallback(markdown) {
     let html = markdown;
 
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
@@ -116,6 +127,117 @@ class PostPage {
         ${body}
       </section>
     `;
+    this.enhance(this.container.querySelector('.post-body'));
+  }
+
+  enhance(root) {
+    if (!root) return;
+    this.linkifyText(root);
+    this.decorateLinks(root);
+    this.decorateCodeBlocks(root);
+  }
+
+  linkifyText(root) {
+    const urlRegex = /https?:\/\/[^\s<>"']+[^\s<>"'.,;:!?)]/g;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (node.parentElement.closest('a, pre, code')) return NodeFilter.FILTER_REJECT;
+        urlRegex.lastIndex = 0;
+        return urlRegex.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+      },
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((node) => {
+      const text = node.nodeValue;
+      const fragment = document.createDocumentFragment();
+      let lastIndex = 0;
+      urlRegex.lastIndex = 0;
+      for (const match of text.matchAll(urlRegex)) {
+        fragment.append(text.slice(lastIndex, match.index));
+        const link = document.createElement('a');
+        link.href = match[0];
+        link.textContent = match[0];
+        fragment.append(link);
+        lastIndex = match.index + match[0].length;
+      }
+      fragment.append(text.slice(lastIndex));
+      node.replaceWith(fragment);
+    });
+  }
+
+  decorateLinks(root) {
+    root.querySelectorAll('a[href]').forEach((link) => {
+      const url = new URL(link.getAttribute('href'), window.location.href);
+      if (url.origin !== window.location.origin) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+    });
+  }
+
+  highlight(code) {
+    const declared = (code.className.match(/language-([\w-]+)/) || [])[1];
+    const hljs = window.hljs;
+    if (!hljs) return declared;
+
+    if (declared && hljs.getLanguage(declared)) {
+      hljs.highlightElement(code);
+      return declared;
+    }
+
+    // Unlabelled blocks: treat terminal sessions as bash, otherwise only guess
+    // among languages these posts use and leave low-confidence matches as plain text.
+    if (PostPage.SHELL_PATTERN.test(code.textContent)) {
+      code.classList.add('language-bash');
+      hljs.highlightElement(code);
+      return 'bash';
+    }
+
+    const result = hljs.highlightAuto(code.textContent, PostPage.AUTO_LANGUAGES);
+    if (result.relevance < 5) return declared;
+    code.innerHTML = result.value;
+    code.classList.add('hljs', `language-${result.language}`);
+    return result.language;
+  }
+
+  decorateCodeBlocks(root) {
+    root.querySelectorAll('pre').forEach((pre) => {
+      let code = pre.querySelector('code');
+      if (!code) {
+        code = document.createElement('code');
+        code.textContent = pre.textContent;
+        pre.replaceChildren(code);
+      }
+
+      const language = this.highlight(code);
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block';
+      pre.replaceWith(wrapper);
+
+      const toolbar = document.createElement('div');
+      toolbar.className = 'code-toolbar';
+      toolbar.innerHTML = `
+        <span class="code-lang">${language || 'text'}</span>
+        <button type="button" class="code-copy">Copy</button>
+      `;
+      wrapper.append(toolbar, pre);
+
+      const button = toolbar.querySelector('.code-copy');
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code.textContent);
+          button.textContent = 'Copied';
+        } catch {
+          button.textContent = 'Failed';
+        }
+        setTimeout(() => {
+          button.textContent = 'Copy';
+        }, 1500);
+      });
+    });
   }
 
   renderError() {
