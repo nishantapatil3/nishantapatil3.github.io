@@ -1,5 +1,5 @@
 ---
-title: I Stopped Paying Per Token by Routing Claude Code Through OpenRouter's Free Models
+title: How to Run Claude Code on OpenRouter's Free Models
 date: 2026-07-01
 ---
 
