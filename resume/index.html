@@ -8,7 +8,11 @@
   <title>Resume - Nishant Patil</title>
   <script>
     (() => {
-      const preferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let stored = null;
+      try { stored = localStorage.getItem('theme'); } catch (e) {}
+      const preferred = stored === 'light' || stored === 'dark'
+        ? stored
+        : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', preferred);
     })();
   </script>

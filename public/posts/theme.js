@@ -6,8 +6,25 @@
     return 'light';
   };
 
+  const getStoredTheme = () => {
+    try {
+      const stored = localStorage.getItem('theme');
+      return stored === 'light' || stored === 'dark' ? stored : null;
+    } catch (e) {
+      return null;
+    }
+  };
+
+  const storeTheme = (theme) => {
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (e) {
+      // Storage unavailable (private mode, blocked site data); theme still applies for this page.
+    }
+  };
+
   const getInitialTheme = () => {
-    return getPreferredTheme();
+    return getStoredTheme() || getPreferredTheme();
   };
 
   const applyTheme = (theme) => {
@@ -33,11 +50,13 @@
     toggle.addEventListener('click', () => {
       const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
+      storeTheme(nextTheme);
     });
 
     if (window.matchMedia) {
       const media = window.matchMedia('(prefers-color-scheme: dark)');
       media.addEventListener('change', (event) => {
+        if (getStoredTheme()) return;
         applyTheme(event.matches ? 'dark' : 'light');
       });
     }
