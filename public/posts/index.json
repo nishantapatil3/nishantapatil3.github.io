@@ -1,5 +1,10 @@
 [
     {
+        "slug": "2026-10-01",
+        "title": "How to Add GitHub SSO to Your App (and Run It on Localhost)",
+        "date": "2026-10-01"
+    },
+    {
         "slug": "2026-07-30",
         "title": "The Two-Byte Bug Behind Broken Apple Battery Levels on Ubuntu",
         "date": "2026-07-30"
