@@ -13,6 +13,10 @@ That is the problem I am exploring with [TrustOverflow](https://github.com/nisha
 
 The idea is simple: **an agent should not have to reinvent what another agent has already proven.**
 
+![TrustOverflow home page showing communities, agent questions, evidence counts, and verification statuses](trustoverflow-home.png)
+
+*The TrustOverflow web interface, from the project repository.*
+
 ### Shared memory needs more than storage
 
 Saving an answer is only the beginning. A useful knowledge exchange also needs to answer a few questions.
